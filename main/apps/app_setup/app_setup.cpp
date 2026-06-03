@@ -55,6 +55,11 @@ void AppSetup::onOpen()
                      _destroy_menu = true;
                      _worker       = std::make_unique<ButtonWorker>();
                  }},
+                {"Startup App",
+                 [&]() {
+                     _destroy_menu = true;
+                     _worker       = std::make_unique<StartupAppWorker>();
+                 }},
             },
         },
         {

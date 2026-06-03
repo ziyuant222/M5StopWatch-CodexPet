@@ -12,6 +12,7 @@ enum class KeyEvent {
     None,
     GoHome,
     GoPrevious,
+    GoPreviousLong,
     GoNext,
 };
 

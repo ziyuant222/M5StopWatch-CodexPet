@@ -36,9 +36,11 @@
 
 # Build files
 build/
+build-*/
 cmake-build-*/
 /components/
 managed_components/
+reports/
 
 # PlatformIO
 .pio/
@@ -49,6 +51,11 @@ managed_components/
 
 # Python virtual environment
 .venv/
+__pycache__/
+*.pyc
+
+# Generated asset source inputs
+main/assets/source/
 
 # Debug / Release files
 Debug/

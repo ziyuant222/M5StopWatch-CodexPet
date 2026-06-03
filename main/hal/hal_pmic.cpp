@@ -131,7 +131,7 @@ bool Hal::pmic_get_pwr_btn_state()
 {
     bool result = false;
     if (_pm1) {
-        return _pm1->btnGetState(&result);
+        return _pm1->btnGetState(&result) == M5PM1_OK && result;
     }
     return result;
 }

@@ -468,7 +468,7 @@ int Hal::getSpeakerVolume(bool loadFromSettings)
 
     if (loadFromSettings) {
         Settings settings(std::string(Hal::SettingsNs), false);
-        _spk_volume = settings.GetInt("spk_vol", 80);
+        _spk_volume = settings.GetInt("spk_vol", 0);
         _spk_volume = uitk::clamp(_spk_volume, 0, 100);
         mclog::tagInfo(_tag, "volume loaded from settings: {}", _spk_volume);
     }

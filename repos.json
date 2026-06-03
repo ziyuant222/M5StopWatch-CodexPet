@@ -27,7 +27,8 @@
     {
         "url": "https://github.com/lvgl/lvgl.git",
         "path": "components/lvgl",
-        "branch": "v9.5.0"
+        "branch": "v9.5.0",
+        "patch": "patches/lvgl-cjk-breath-glyphs.patch"
     },
     {
         "url": "https://github.com/m5stack/M5IOE1",

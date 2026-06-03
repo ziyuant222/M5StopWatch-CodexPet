@@ -18,6 +18,11 @@ public:
     void onLauncherClose() override;
     void onLauncherDestroy() override;
 
+    void setStartupAppId(int app_id)
+    {
+        _startup_app_id = app_id;
+    }
+
 private:
     std::unique_ptr<view::LauncherView> _view;
     bool _is_first_open              = true;
@@ -26,6 +31,8 @@ private:
     uint32_t _last_charge_check_tick = 0;
     bool _was_battery_charging       = false;
     bool _should_play_boot_sfx       = true;
+    int _startup_app_id              = -1;
+    bool _startup_app_requested      = false;
 
     void create_launcher_view();
     void show_guide_page();

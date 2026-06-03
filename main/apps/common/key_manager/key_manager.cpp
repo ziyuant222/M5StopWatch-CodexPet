@@ -20,6 +20,8 @@ const KeyEvent& KeyManager::update(bool updateButtonStates)
             _event           = KeyEvent::GoHome;
             _go_home_latched = true;
         }
+    } else if (GetHAL().btnA.wasHold()) {
+        _event = KeyEvent::GoPreviousLong;
     } else if (GetHAL().btnA.wasClicked()) {
         _event = KeyEvent::GoPrevious;
     } else if (GetHAL().btnB.wasClicked()) {

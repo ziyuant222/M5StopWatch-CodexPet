@@ -36,7 +36,7 @@ void Hal::updateButtonStates()
 {
     btnA.setRawState(millis(), !gpio_get_level(USER_BUTTONA_PIN));
     btnB.setRawState(millis(), !gpio_get_level(USER_BUTTONB_PIN));
-    // btnPwr.setRawState(millis(), pmic_get_pwr_btn_state());
+    btnPwr.setRawState(millis(), pmic_get_pwr_btn_state());
 
     auto& config = getButtonConfig();
     if (btnA.wasPressed()) {
@@ -71,7 +71,7 @@ const Hal::ButtonConfig& Hal::getButtonConfig(bool loadFromSettings)
 {
     if (loadFromSettings) {
         Settings settings(std::string(Hal::SettingsNs), false);
-        _btn_config.sfxEnabled     = settings.GetBool("btn_sfx", true);
+        _btn_config.sfxEnabled     = settings.GetBool("btn_sfx", false);
         _btn_config.vibrateEnabled = settings.GetBool("btn_vibrate", true);
         mclog::tagInfo(_tag, "config loaded from settings: sfx={}, vibrate={}", _btn_config.sfxEnabled,
                        _btn_config.vibrateEnabled);

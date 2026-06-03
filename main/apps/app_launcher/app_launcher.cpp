@@ -23,7 +23,9 @@ void AppLauncher::onLauncherOpen()
 {
     mclog::tagInfo(getAppInfo().name, "on open");
 
-    show_guide_page();
+    if (_startup_app_id < 0) {
+        show_guide_page();
+    }
 
     {
         LvglLockGuard lock;
@@ -49,6 +51,11 @@ void AppLauncher::onLauncherOpen()
 
 void AppLauncher::onLauncherRunning()
 {
+    if (_startup_app_id >= 0 && !_startup_app_requested) {
+        _startup_app_requested = openApp(_startup_app_id);
+        return;
+    }
+
     LvglLockGuard lock;
 
     uint32_t now = GetHAL().millis();

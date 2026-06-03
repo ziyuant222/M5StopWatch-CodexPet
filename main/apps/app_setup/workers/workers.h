@@ -89,6 +89,22 @@ private:
  * @brief
  *
  */
+class StartupAppWorker : public WorkerBase {
+public:
+    StartupAppWorker();
+    ~StartupAppWorker();
+    void update() override;
+
+private:
+    class StartupAppView;
+
+    std::unique_ptr<StartupAppView> _view;
+};
+
+/**
+ * @brief
+ *
+ */
 class SetTimeWorker : public WorkerBase {
 public:
     SetTimeWorker();
